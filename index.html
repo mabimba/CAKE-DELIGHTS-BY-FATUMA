@@ -1,0 +1,1549 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cake Delights by Fatuma - Cakes, pastries, snacks and beverages in Ndeeba, Kampala, Uganda.">
+<meta name="theme-color" content="#713B2C">
+<title>Cake Delights by Fatuma | Freshly Baked Happiness</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap');
+
+:root{
+  --brown:#713B2C;
+  --dark:#301B15;
+  --pink:#F6DCE2;
+  --rose:#E9B7C4;
+  --cream:#FFF9F3;
+  --gold:#C79A52;
+  --white:#FFFFFF;
+  --text:#35241E;
+  --muted:#80716A;
+  --green:#25D366;
+  --shadow:0 12px 35px rgba(71,37,23,.09);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  background:#fff;
+  overflow-x:hidden;
+}
+
+button,input,select{font:inherit}
+button{cursor:pointer}
+img{max-width:100%;display:block}
+
+.topbar{
+  background:var(--dark);
+  color:white;
+  text-align:center;
+  padding:10px;
+  font-size:13px;
+  letter-spacing:.5px;
+}
+
+.topbar a{color:#F6D9A9;text-decoration:none}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #eee5de;
+}
+
+.nav{
+  max-width:1400px;
+  margin:auto;
+  padding:16px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--brown);
+  text-decoration:none;
+}
+
+.logo-icon{font-size:36px}
+
+.logo-name{
+  font-family:'Playfair Display',serif;
+  font-size:21px;
+  font-weight:800;
+  line-height:1.1;
+}
+
+.logo-name span{
+  display:block;
+  font-family:'DM Sans',sans-serif;
+  font-size:10px;
+  letter-spacing:3px;
+  margin-top:4px;
+  color:var(--gold);
+}
+
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.navlinks a{
+  text-decoration:none;
+  color:#44332c;
+  font-size:14px;
+  font-weight:600;
+}
+
+.navlinks a:hover{color:#C07961}
+
+.nav-actions{
+  display:flex;
+  gap:9px;
+  align-items:center;
+}
+
+.icon-btn{
+  position:relative;
+  border:1px solid #eee2d8;
+  background:white;
+  border-radius:50%;
+  width:43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  font-size:19px;
+  transition:.2s;
+}
+
+.icon-btn:hover{
+  background:var(--cream);
+  transform:translateY(-2px);
+}
+
+.count{
+  position:absolute;
+  top:-4px;
+  right:-4px;
+  background:#9D5B45;
+  color:white;
+  font-size:10px;
+  width:19px;
+  height:19px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+}
+
+.menu-btn{display:none}
+
+.hero{
+  min-height:580px;
+  background:linear-gradient(110deg,#FFF5EC 0%,#F9E7DF 55%,#EED4D5 100%);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:55px 7%;
+  overflow:hidden;
+}
+
+.hero-text{max-width:620px}
+
+.eyebrow{
+  color:#A46B50;
+  text-transform:uppercase;
+  font-weight:700;
+  letter-spacing:3px;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(42px,6vw,78px);
+  line-height:1.08;
+  color:#492B21;
+  margin-bottom:22px;
+}
+
+.hero h1 span{color:#B66F58}
+
+.hero p{
+  font-size:16px;
+  color:#725C51;
+  line-height:1.8;
+  max-width:480px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:14px 23px;
+  border-radius:9px;
+  border:none;
+  font-weight:700;
+  text-decoration:none;
+  transition:.25s;
+}
+
+.btn:hover{transform:translateY(-2px)}
+
+.btn-primary{
+  background:var(--brown);
+  color:white;
+}
+
+.btn-primary:hover{background:#8E513D}
+
+.btn-outline{
+  border:1px solid #B48B77;
+  color:var(--brown);
+  background:transparent;
+}
+
+.hero-image{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+}
+
+.hero-image img{
+  width:min(100%,540px);
+  height:470px;
+  object-fit:cover;
+  border-radius:48% 48% 20px 20px;
+  box-shadow:0 20px 50px rgba(94,49,32,.2);
+}
+
+.hero-badge{
+  position:absolute;
+  bottom:25px;
+  left:2%;
+  background:white;
+  padding:17px 21px;
+  border-radius:15px;
+  box-shadow:var(--shadow);
+  font-weight:700;
+  color:var(--brown);
+}
+
+.hero-badge small{
+  display:block;
+  font-weight:400;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  max-width:1300px;
+  margin:35px auto;
+  padding:0 5%;
+  gap:18px;
+}
+
+.feature{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:18px;
+  border:1px solid #f1e8e1;
+  border-radius:13px;
+}
+
+.feature-icon{font-size:27px}
+
+.feature strong{font-size:13px;display:block}
+.feature small{color:var(--muted);font-size:12px}
+
+.section{
+  padding:75px 5%;
+  max-width:1450px;
+  margin:auto;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-head .eyebrow{margin-bottom:10px}
+
+.section-head h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,4vw,46px);
+  color:#492B21;
+}
+
+.section-head p{
+  color:var(--muted);
+  margin-top:12px;
+  line-height:1.7;
+}
+
+.category-list{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.category-btn{
+  background:white;
+  border:1px solid #eadbd0;
+  color:#6B5142;
+  padding:10px 19px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:600;
+  transition:.2s;
+}
+
+.category-btn.active,.category-btn:hover{
+  background:var(--brown);
+  border-color:var(--brown);
+  color:white;
+}
+
+.shop-tools{
+  display:flex;
+  gap:15px;
+  justify-content:space-between;
+  margin-bottom:28px;
+  flex-wrap:wrap;
+}
+
+.search-box{
+  flex:1;
+  min-width:220px;
+  position:relative;
+}
+
+.search-box input{
+  width:100%;
+  padding:14px 18px 14px 43px;
+  border:1px solid #eadfd7;
+  border-radius:10px;
+  outline:none;
+}
+
+.search-box input:focus{border-color:#B47C60}
+
+.search-box span{
+  position:absolute;
+  top:13px;
+  left:15px;
+}
+
+.sort-select{
+  border:1px solid #eadfd7;
+  padding:12px;
+  border-radius:10px;
+  color:#594438;
+  background:white;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:23px;
+}
+
+.product-card{
+  border:1px solid #F0E8E1;
+  border-radius:15px;
+  overflow:hidden;
+  background:white;
+  transition:.25s;
+  position:relative;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow);
+}
+
+.product-image{
+  height:235px;
+  background:#F9F2EB;
+  position:relative;
+  overflow:hidden;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .4s;
+}
+
+.product-card:hover .product-image img{transform:scale(1.05)}
+
+.product-tag{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:#fff;
+  color:#955B46;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:10px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.favorite-btn{
+  position:absolute;
+  top:11px;
+  right:11px;
+  border:none;
+  background:white;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  font-size:18px;
+  display:grid;
+  place-items:center;
+  box-shadow:0 2px 10px #0001;
+}
+
+.favorite-btn.loved{color:#E34D79}
+
+.product-info{padding:16px}
+
+.product-category{
+  color:#B08062;
+  font-size:10px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.4px;
+}
+
+.product-info h3{
+  font-family:'Playfair Display',serif;
+  font-size:19px;
+  margin:7px 0;
+}
+
+.product-info p{
+  color:#85776F;
+  font-size:12px;
+  line-height:1.6;
+  min-height:38px;
+}
+
+.price-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:14px;
+  gap:8px;
+}
+
+.price{
+  color:var(--brown);
+  font-size:17px;
+  font-weight:800;
+}
+
+.add-btn{
+  background:var(--brown);
+  color:white;
+  border:none;
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  font-size:23px;
+}
+
+.add-btn:hover{background:#A2674B}
+
+.empty-message{
+  grid-column:1/-1;
+  text-align:center;
+  padding:45px;
+  color:var(--muted);
+}
+
+.custom-banner{
+  margin:30px 5%;
+  border-radius:22px;
+  background:linear-gradient(120deg,#542D20,#9C624B);
+  color:white;
+  padding:55px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:center;
+  gap:20px;
+}
+
+.custom-banner h2{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  margin-bottom:12px;
+}
+
+.custom-banner p{
+  line-height:1.8;
+  max-width:620px;
+  color:#F5DFD3;
+}
+
+.custom-banner .btn{
+  background:#fff;
+  color:#603A2A;
+  white-space:nowrap;
+}
+
+.about-section{
+  background:var(--cream);
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.about-image img{
+  width:100%;
+  height:430px;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+.about-text h2{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  margin-bottom:20px;
+}
+
+.about-text p{
+  color:#76655B;
+  line-height:1.9;
+  margin-bottom:16px;
+}
+
+.about-list{
+  list-style:none;
+  display:grid;
+  gap:12px;
+  margin:22px 0;
+}
+
+.about-list li{font-weight:600;font-size:14px}
+
+.drinks-section{background:#FFF}
+
+.location-card{
+  background:#F9F1E9;
+  border-radius:18px;
+  padding:32px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.location-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+.location-card p{
+  line-height:1.8;
+  color:#74645B;
+}
+
+.contact-links{
+  display:grid;
+  gap:12px;
+  margin-top:15px;
+}
+
+.contact-links a{
+  text-decoration:none;
+  color:var(--brown);
+  font-weight:600;
+  word-break:break-word;
+}
+
+footer{
+  background:#301B15;
+  color:white;
+  padding:50px 5% 20px;
+}
+
+.footer-grid{
+  max-width:1300px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:35px;
+}
+
+footer h3{
+  font-family:'Playfair Display',serif;
+  margin-bottom:17px;
+}
+
+footer p,footer a{
+  color:#D6C3B9;
+  text-decoration:none;
+  font-size:13px;
+  line-height:1.9;
+}
+
+footer a:hover{color:white}
+
+.footer-links{
+  display:grid;
+  gap:8px;
+}
+
+.footer-bottom{
+  text-align:center;
+  border-top:1px solid #523A31;
+  padding-top:20px;
+  margin-top:35px;
+  font-size:12px;
+  color:#C2AFA4;
+}
+
+.whatsapp-float{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  z-index:300;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  display:grid;
+  place-items:center;
+  color:white;
+  text-decoration:none;
+  font-size:28px;
+  box-shadow:0 5px 25px #0003;
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0007;
+  z-index:500;
+}
+
+.overlay.open{display:block}
+
+.drawer{
+  position:absolute;
+  right:0;
+  top:0;
+  height:100%;
+  width:min(460px,100%);
+  background:white;
+  padding:25px;
+  overflow-y:auto;
+  box-shadow:-10px 0 30px #0001;
+}
+
+.drawer-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  padding-bottom:17px;
+}
+
+.drawer-header h2{
+  font-family:'Playfair Display',serif;
+}
+
+.close-btn{
+  border:none;
+  background:#F5EDE7;
+  border-radius:50%;
+  width:38px;
+  height:38px;
+  font-size:20px;
+}
+
+.cart-items{margin:20px 0}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:65px 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid #f0e9e4;
+}
+
+.cart-item img{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.cart-item h4{font-size:14px;margin-bottom:5px}
+
+.cart-item small{color:var(--muted)}
+
+.qty-controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+}
+
+.qty-controls button{
+  border:1px solid #eee;
+  background:#fff;
+  width:25px;
+  height:25px;
+  border-radius:6px;
+}
+
+.remove-item{
+  border:none;
+  background:none;
+  color:#A55;
+  font-size:12px;
+  margin-left:5px;
+}
+
+.cart-summary{
+  border-top:1px solid #eee;
+  padding-top:20px;
+}
+
+.summary-line{
+  display:flex;
+  justify-content:space-between;
+  margin:13px 0;
+  font-size:14px;
+}
+
+.summary-total{
+  font-weight:800;
+  font-size:19px;
+  color:var(--brown);
+  padding-top:12px;
+  border-top:1px dashed #ddd;
+}
+
+.checkout-form{
+  display:grid;
+  gap:12px;
+  margin-top:20px;
+}
+
+.checkout-form input,.checkout-form select,.checkout-form textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #E8DED6;
+  border-radius:9px;
+  outline:none;
+}
+
+.checkout-form input:focus,
+.checkout-form select:focus,
+.checkout-form textarea:focus{border-color:#B47C60}
+
+.checkout-form textarea{
+  min-height:85px;
+  resize:vertical;
+}
+
+.checkout-btn{
+  width:100%;
+  background:#25D366;
+  color:#123D24;
+  border:none;
+  padding:15px;
+  border-radius:10px;
+  font-weight:800;
+}
+
+.checkout-note{
+  font-size:11px;
+  line-height:1.7;
+  color:#85776E;
+  margin-top:10px;
+}
+
+.toast{
+  position:fixed;
+  bottom:90px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#35231B;
+  color:white;
+  padding:13px 20px;
+  border-radius:9px;
+  z-index:800;
+  font-size:13px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+}
+
+.toast.show{opacity:1}
+
+@media(max-width:1000px){
+  .navlinks{gap:13px}
+  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .hero{min-height:490px}
+  .hero-image img{height:390px}
+  .features{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:720px){
+  .nav{padding:12px 4%}
+  .logo-name{font-size:17px}
+  .logo-icon{font-size:28px}
+  .menu-btn{display:grid}
+  .navlinks{
+    display:none;
+    position:absolute;
+    left:0;
+    right:0;
+    top:100%;
+    padding:20px;
+    background:white;
+    border-top:1px solid #eee;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .navlinks.open{display:flex}
+  .hero{
+    grid-template-columns:1fr;
+    padding:42px 6%;
+    gap:30px;
+  }
+  .hero h1{font-size:47px}
+  .hero-image img{height:320px;width:100%;border-radius:20px}
+  .hero-badge{left:5px;bottom:15px}
+  .features{padding:0 4%;gap:10px}
+  .feature{padding:12px}
+  .feature strong{font-size:12px}
+  .feature small{font-size:10px}
+  .section{padding:55px 4%}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .product-image{height:180px}
+  .product-info{padding:12px}
+  .product-info h3{font-size:16px}
+  .product-info p{font-size:11px}
+  .price{font-size:14px}
+  .custom-banner{grid-template-columns:1fr;padding:32px 23px;margin:20px 4%}
+  .custom-banner h2{font-size:29px}
+  .about-grid{grid-template-columns:1fr;gap:25px}
+  .about-image img{height:300px}
+  .about-text h2{font-size:34px}
+  .location-card{grid-template-columns:1fr;padding:23px}
+  .footer-grid{grid-template-columns:1fr;gap:25px}
+  .shop-tools{gap:10px}
+  .sort-select{width:100%}
+}
+
+@media(max-width:380px){
+  .product-grid{grid-template-columns:1fr}
+  .product-image{height:250px}
+  .nav-actions{gap:5px}
+  .icon-btn{width:37px;height:37px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  🎂 Freshly baked with love in Kampala!
+  <a href="https://wa.me/256704634536">Order today on WhatsApp</a>
+</div>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="logo">
+      <span class="logo-icon">🍰</span>
+      <span class="logo-name">CAKE DELIGHTS
+        <span>BY FATUMA</span>
+      </span>
+    </a>
+
+    <div class="navlinks" id="navlinks">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#about">About Us</a>
+      <a href="#drinks">Drinks</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-btn" onclick="showFavorites()" title="My favourites">
+        ♡ <span class="count" id="favCount">0</span>
+      </button>
+      <button class="icon-btn" onclick="openCart()" title="Shopping cart">
+        🛒 <span class="count" id="cartCount">0</span>
+      </button>
+      <button class="icon-btn menu-btn" onclick="toggleMenu()" title="Menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="eyebrow">Welcome to Cake Delights by Fatuma</div>
+    <h1>Every bite is a <span>sweet</span> celebration.</h1>
+    <p>
+      Beautiful cakes, delicious pastries, fresh bakery treats and
+      refreshing beverages made to bring happiness to every occasion.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#shop" class="btn btn-primary">Explore Our Menu 🍰</a>
+      <a href="https://wa.me/256704634536" class="btn btn-outline">Order on WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img
+      src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85"
+      alt="Beautiful celebration cake">
+    <div class="hero-badge">
+      🍰 Made with love
+      <small>Sweetness in every bite</small>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <span class="feature-icon">🎂</span>
+    <div><strong>Custom Cakes</strong><small>Made for your occasion</small></div>
+  </div>
+  <div class="feature">
+    <span class="feature-icon">🧁</span>
+    <div><strong>Freshly Baked</strong><small>Quality & freshness</small></div>
+  </div>
+  <div class="feature">
+    <span class="feature-icon">🚚</span>
+    <div><strong>Kampala Delivery</strong><small>UGX 10,000</small></div>
+  </div>
+  <div class="feature">
+    <span class="feature-icon">💝</span>
+    <div><strong>Made With Love</strong><small>Every order matters</small></div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="section-head">
+    <div class="eyebrow">Our Delicious Menu</div>
+    <h2>Find Your Perfect Treat</h2>
+    <p>Explore our cakes, pastries, snacks, breads and refreshing beverages.</p>
+  </div>
+
+  <div class="category-list" id="categoryList"></div>
+
+  <div class="shop-tools">
+    <div class="search-box">
+      <span>🔍</span>
+      <input type="search" id="searchInput" placeholder="Search cakes, snacks, drinks..." oninput="renderProducts()">
+    </div>
+    <select class="sort-select" id="sortSelect" onchange="renderProducts()">
+      <option value="default">Sort: Recommended</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="name">Name: A to Z</option>
+    </select>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<section class="custom-banner">
+  <div>
+    <h2>Dream it. We bake it. 🎂</h2>
+    <p>
+      Looking for a special birthday cake, wedding cake, graduation cake,
+      anniversary cake or a cake with a design of your choice?
+      Let us create something unforgettable for you.
+    </p>
+  </div>
+  <a class="btn" href="https://wa.me/256704634536?text=Hello%20Cake%20Delights%20by%20Fatuma%2C%20I%20would%20like%20to%20order%20a%20custom%20cake.">
+    Request a Custom Cake
+  </a>
+</section>
+
+<section class="section about-section" id="about">
+  <div class="about-grid">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1558636508-e0dbd6d5c9b0?auto=format&fit=crop&w=1000&q=85"
+        alt="Freshly prepared bakery cake">
+    </div>
+    <div class="about-text">
+      <div class="eyebrow">Our Story</div>
+      <h2>Sweetness, quality & love in every creation.</h2>
+      <p>
+        Cake Delights by Fatuma is passionate about making every moment
+        sweeter. From simple everyday treats to beautiful celebration cakes,
+        we prepare delicious products to bring people together.
+      </p>
+      <p>
+        Whether you need a birthday cake, cupcakes for a party, fresh buns
+        for breakfast, chapati for your meal or a refreshing drink,
+        we have something for you.
+      </p>
+      <ul class="about-list">
+        <li>✨ Cakes made for every occasion</li>
+        <li>🍪 Delicious bakery products</li>
+        <li>🎁 Custom orders available</li>
+        <li>🚚 Kampala delivery available</li>
+      </ul>
+      <a href="#shop" class="btn btn-primary">Shop Our Products</a>
+    </div>
+  </div>
+</section>
+
+<section class="section drinks-section" id="drinks">
+  <div class="section-head">
+    <div class="eyebrow">Refresh & Enjoy</div>
+    <h2>Drinks & Beverages</h2>
+    <p>Complete your treats with something refreshing.</p>
+  </div>
+  <div id="drinkGrid" class="product-grid"></div>
+</section>
+
+<section class="section" id="contact">
+  <div class="section-head">
+    <div class="eyebrow">Come visit or contact us</div>
+    <h2>Let's Make Your Day Sweeter</h2>
+  </div>
+
+  <div class="location-card">
+    <div>
+      <h3>📍 Find Us</h3>
+      <p>
+        <strong>Cake Delights by Fatuma</strong><br>
+        Ndeeba, near Rubis Petrol Station<br>
+        Kampala, Uganda
+      </p>
+      <p style="margin-top:14px">
+        🚚 Delivery within Kampala: <strong>UGX 10,000</strong>
+      </p>
+      <p>
+        Delivery outside Kampala: Contact us for a quotation.
+      </p>
+      <div style="margin-top:20px">
+        <a class="btn btn-primary" target="_blank" rel="noopener"
+        href="https://www.google.com/maps/search/?api=1&query=Cake+Delights+by+Fatuma+Ndeeba+Kampala">
+        📍 Open Location in Maps
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h3>📞 Contact & Order</h3>
+      <div class="contact-links">
+        <a href="tel:+256704634536">☎ Call: +256 704 634 536</a>
+        <a href="https://wa.me/256704634536">💬 WhatsApp: +256 704 634 536</a>
+        <a href="mailto:fatumanabaggala1@gmail.com">✉ fatumanabaggala1@gmail.com</a>
+        <a href="mailto:fatumanabaggala570@gmail.com">✉ fatumanabaggala570@gmail.com</a>
+        <a href="https://www.tiktok.com/@cakedelightsbyfatuma" target="_blank" rel="noopener">🎵 TikTok: @cakedelightsbyfatuma</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h3>🍰 Cake Delights by Fatuma</h3>
+      <p>
+        Baking happiness, one cake at a time.<br>
+        Cakes, pastries, snacks and beverages.<br>
+        Ndeeba, near Rubis Petrol Station, Kampala.
+      </p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop All</a>
+        <a href="#about">About Us</a>
+        <a href="#drinks">Beverages</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div>
+      <h3>Follow & Order</h3>
+      <div class="footer-links">
+        <a href="https://wa.me/256704634536">WhatsApp Us</a>
+        <a href="https://www.tiktok.com/@cakedelightsbyfatuma">TikTok</a>
+        <a href="mailto:fatumanabaggala1@gmail.com">Email Us</a>
+        <a href="tel:+256704634536">Call Us</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Cake Delights by Fatuma.
+    Made with ❤️ in Kampala, Uganda.
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/256704634536"
+target="_blank" rel="noopener" aria-label="WhatsApp us">☏</a>
+
+<!-- Shopping cart drawer -->
+<div class="overlay" id="cartOverlay" onclick="overlayClose(event)">
+  <div class="drawer" onclick="event.stopPropagation()">
+    <div class="drawer-header">
+      <h2>🛒 Your Shopping Cart</h2>
+      <button class="close-btn" onclick="closeCart()">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="cart-summary">
+      <div class="summary-line">
+        <span>Subtotal</span><strong id="subtotal">UGX 0</strong>
+      </div>
+      <div class="summary-line">
+        <span>Delivery</span><strong id="delivery">UGX 0</strong>
+      </div>
+      <div class="summary-line summary-total">
+        <span>Total</span><strong id="total">UGX 0</strong>
+      </div>
+
+      <form class="checkout-form" id="checkoutForm">
+        <input id="customerName" type="text" maxlength="80"
+          placeholder="Your name" autocomplete="name" required>
+
+        <input id="customerPhone" type="tel" maxlength="20"
+          placeholder="Your phone number" autocomplete="tel" required>
+
+        <select id="deliveryOption" onchange="updateCart()">
+          <option value="delivery">Kampala Delivery — UGX 10,000</option>
+          <option value="pickup">Pick up from Ndeeba — Free</option>
+        </select>
+
+        <input id="deliveryAddress" type="text" maxlength="200"
+          placeholder="Delivery address / location">
+
+        <input id="orderDate" type="date">
+
+        <textarea id="orderNotes" maxlength="500"
+          placeholder="Additional details, cake writing, flavours, sizes or instructions"></textarea>
+
+        <button type="submit" class="checkout-btn">
+          Order via WhatsApp 💬
+        </button>
+      </form>
+
+      <p class="checkout-note">
+        Your order will be sent to WhatsApp for confirmation.
+        No card details or passwords are requested on this website.
+        Your order is not confirmed until Fatuma responds.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+
+/* =========================================
+   CAKE DELIGHTS BY FATUMA
+   Product catalogue
+   Prices are illustrative UGX retail prices.
+   Adjust them to your actual menu.
+========================================= */
+
+const WA_NUMBER = "256704634536";
+const DELIVERY_FEE = 10000;
+
+const products = [
+
+/* CAKES */
+{id:1,name:"Classic Vanilla Cake",category:"Cakes",price:30000,tag:"Popular",desc:"Soft vanilla sponge with smooth cream.",img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"},
+{id:2,name:"Chocolate Fudge Cake",category:"Cakes",price:45000,tag:"Chocolate",desc:"Rich chocolate sponge and fudge frosting.",img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"},
+{id:3,name:"Black Forest Cake",category:"Cakes",price:50000,tag:"Classic",desc:"Chocolate, cream and cherry-inspired layers.",img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"},
+{id:4,name:"White Forest Cake",category:"Cakes",price:50000,tag:"Delight",desc:"Light cake with white cream layers.",img:"https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80"},
+{id:5,name:"Red Velvet Cake",category:"Cakes",price:55000,tag:"Favourite",desc:"Velvety red sponge and cream frosting.",img:"https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?auto=format&fit=crop&w=700&q=80"},
+{id:6,name:"Carrot Cake",category:"Cakes",price:45000,tag:"Homemade",desc:"Spiced carrot cake with creamy topping.",img:"https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=700&q=80"},
+{id:7,name:"Lemon Cake",category:"Cakes",price:40000,tag:"Fresh",desc:"Light sponge with a refreshing lemon taste.",img:"https://images.unsplash.com/photo-1464195244916-405fa0a98879?auto=format&fit=crop&w=700&q=80"},
+{id:8,name:"Strawberry Cake",category:"Cakes",price:50000,tag:"Fruity",desc:"Sweet cake with strawberry cream.",img:"https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=700&q=80"},
+{id:9,name:"Birthday Celebration Cake",category:"Cakes",price:60000,tag:"Celebration",desc:"Decorated celebration cake. Custom writing available.",img:"https://images.unsplash.com/photo-1535141190332-7f4f7e8a3e8f?auto=format&fit=crop&w=700&q=80"},
+{id:10,name:"Graduation Cake",category:"Cakes",price:80000,tag:"Graduation",desc:"A cake to celebrate your achievement.",img:"https://images.unsplash.com/photo-1558636508-e0dbd6d5c9b0?auto=format&fit=crop&w=700&q=80"},
+{id:11,name:"Anniversary Cake",category:"Cakes",price:70000,tag:"Love",desc:"Sweet cake for special moments together.",img:"https://images.unsplash.com/photo-1542826438-bd32f43c1a1e?auto=format&fit=crop&w=700&q=80"},
+{id:12,name:"Wedding Cake",category:"Cakes",price:250000,tag:"Premium",desc:"Elegant multi-tier cake. Final price depends on design.",img:"https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=700&q=80"},
+{id:13,name:"Premium Designer Cake",category:"Cakes",price:150000,tag:"Premium",desc:"Custom luxury design with special decorations.",img:"https://images.unsplash.com/photo-1535141190332-7f4f7e8a3e8f?auto=format&fit=crop&w=700&q=80"},
+{id:14,name:"Mini Cake",category:"Cakes",price:30000,tag:"Mini",desc:"A small cake for personal celebrations.",img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"},
+
+/* CUPCAKES AND SWEETS */
+{id:15,name:"Cupcakes (6 pieces)",category:"Cupcakes",price:20000,tag:"6 Pieces",desc:"Six freshly decorated cupcakes.",img:"https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=80"},
+{id:16,name:"Cupcakes (12 pieces)",category:"Cupcakes",price:35000,tag:"12 Pieces",desc:"A box of twelve delicious cupcakes.",img:"https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=700&q=80"},
+{id:17,name:"Chocolate Muffins",category:"Cupcakes",price:5000,tag:"Fresh",desc:"Soft chocolate muffins.",img:"https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=700&q=80"},
+{id:18,name:"Vanilla Muffins",category:"Cupcakes",price:4000,tag:"Fresh",desc:"Fluffy vanilla muffins.",img:"https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=700&q=80"},
+{id:19,name:"Cake Slice",category:"Cupcakes",price:5000,tag:"Single Slice",desc:"A generous slice of fresh cake.",img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"},
+{id:20,name:"Doughnuts (4 pieces)",category:"Cupcakes",price:12000,tag:"Sweet",desc:"Soft glazed doughnuts.",img:"https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80"},
+{id:21,name:"Cookies (Pack)",category:"Cupcakes",price:10000,tag:"Crunchy",desc:"Freshly baked cookies in a pack.",img:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=80"},
+
+/* BAKERY */
+{id:22,name:"Fresh Buns (6)",category:"Bakery",price:6000,tag:"Fresh",desc:"Soft freshly baked buns.",img:"https://images.unsplash.com/photo-1608198093002-ad4e005484f3?auto=format&fit=crop&w=700&q=80"},
+{id:23,name:"Queen Cakes (6)",category:"Bakery",price:10000,tag:"Tea Time",desc:"Classic soft queen cakes.",img:"https://images.unsplash.com/photo-1607958996333-41aef7caefaa?auto=format&fit=crop&w=700&q=80"},
+{id:24,name:"Scones (4)",category:"Bakery",price:8000,tag:"Tea Time",desc:"Freshly baked golden scones.",img:"https://images.unsplash.com/photo-1586444248902-2f64eddc13c9?auto=format&fit=crop&w=700&q=80"},
+{id:25,name:"Chapati",category:"Bakery",price:2000,tag:"Fresh",desc:"Soft freshly prepared chapati.",img:"https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=80"},
+{id:26,name:"Daddies (Pack)",category:"Bakery",price:5000,tag:"Crunchy",desc:"Ugandan-style crunchy baked daddies.",img:"https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=700&q=80"},
+{id:27,name:"Mandazi (3)",category:"Bakery",price:3000,tag:"Breakfast",desc:"Soft golden mandazi.",img:"https://images.unsplash.com/photo-1608198093002-ad4e005484f3?auto=format&fit=crop&w=700&q=80"},
+{id:28,name:"Bread Loaf",category:"Bakery",price:7000,tag:"Fresh",desc:"Fresh bread for home and breakfast.",img:"https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=80"},
+{id:29,name:"Meat Pie",category:"Bakery",price:5000,tag:"Snack",desc:"Pastry filled with savoury meat.",img:"https://images.unsplash.com/photo-1608198093002-ad4e005484f3?auto=format&fit=crop&w=700&q=80"},
+{id:30,name:"Sausage Roll",category:"Bakery",price:5000,tag:"Snack",desc:"Savoury pastry and sausage.",img:"https://images.unsplash.com/photo-1608198093002-ad4e005484f3?auto=format&fit=crop&w=700&q=80"},
+{id:31,name:"Pizza (Small)",category:"Bakery",price:20000,tag:"Snack",desc:"Small freshly prepared pizza.",img:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80"},
+{id:32,name:"Pizza (Large)",category:"Bakery",price:35000,tag:"Sharing",desc:"Large pizza for sharing.",img:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80"},
+
+/* BEVERAGES */
+{id:33,name:"Soda (500ml)",category:"Drinks",price:2500,tag:"Cold",desc:"Chilled assorted soft drinks.",img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=700&q=80"},
+{id:34,name:"Water (500ml)",category:"Drinks",price:1500,tag:"Refresh",desc:"Bottled drinking water.",img:"https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=700&q=80"},
+{id:35,name:"Fresh Juice",category:"Drinks",price:5000,tag:"Fresh",desc:"Refreshing fruit juice.",img:"https://images.unsplash.com/photo-1613478223719-2d6c4b08b8d7?auto=format&fit=crop&w=700&q=80"},
+{id:36,name:"Milkshake",category:"Drinks",price:8000,tag:"Creamy",desc:"Creamy milkshake in your favourite flavour.",img:"https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=700&q=80"},
+{id:37,name:"Iced Coffee",category:"Drinks",price:7000,tag:"Chilled",desc:"Cold refreshing coffee.",img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"},
+{id:38,name:"Tea",category:"Drinks",price:3000,tag:"Hot",desc:"A warm cup of tea.",img:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80"},
+{id:39,name:"Coffee",category:"Drinks",price:5000,tag:"Hot",desc:"Freshly prepared coffee.",img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80"},
+{id:40,name:"Energy Drink",category:"Drinks",price:5000,tag:"Chilled",desc:"Chilled energy drink.",img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=700&q=80"}
+];
+
+/* =========================================
+   STORAGE
+   Only cart and favourites stored locally.
+   No customer personal information stored.
+========================================= */
+
+let cart = {};
+let favorites = new Set();
+let activeCategory = "All";
+
+try {
+  cart = JSON.parse(localStorage.getItem("cdf_cart") || "{}");
+  favorites = new Set(JSON.parse(localStorage.getItem("cdf_favorites") || "[]"));
+} catch(e) {
+  cart = {};
+  favorites = new Set();
+}
+
+const categories = ["All","Cakes","Cupcakes","Bakery","Drinks"];
+
+const money = value =>
+  "UGX " + Number(value).toLocaleString("en-UG");
+
+function saveCart(){
+  try{
+    localStorage.setItem("cdf_cart",JSON.stringify(cart));
+  }catch(e){}
+}
+
+function saveFavorites(){
+  try{
+    localStorage.setItem("cdf_favorites",JSON.stringify([...favorites]));
+  }catch(e){}
+}
+
+function toggleMenu(){
+  document.getElementById("navlinks").classList.toggle("open");
+}
+
+function buildCategories(){
+  const container=document.getElementById("categoryList");
+  container.innerHTML=categories.map(category=>`
+    <button class="category-btn ${category===activeCategory?'active':''}"
+      onclick="selectCategory('${category}')">
+      ${category==="All"?"✨ ":category==="Cakes"?"🎂 ":category==="Cupcakes"?"🧁 ":category==="Bakery"?"🥐 ":"🥤 "}${category}
+    </button>
+  `).join("");
+}
+
+function selectCategory(category){
+  activeCategory=category;
+  buildCategories();
+  renderProducts();
+}
+
+function productCard(p){
+  const loved=favorites.has(p.id);
+  return `
+    <article class="product-card">
+      <div class="product-image">
+        <img src="${p.img}" alt="${p.name}" loading="lazy"
+          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80'">
+        <span class="product-tag">${p.tag}</span>
+        <button class="favorite-btn ${loved?'loved':''}"
+          onclick="toggleFavorite(${p.id})" aria-label="Add to favourites">
+          ${loved?"♥":"♡"}
+        </button>
+      </div>
+      <div class="product-info">
+        <span class="product-category">${p.category}</span>
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="price-row">
+          <span class="price">${money(p.price)}</span>
+          <button class="add-btn" onclick="addToCart(${p.id})" aria-label="Add ${p.name} to cart">+</button>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+function renderProducts(){
+  const search=document.getElementById("searchInput").value.toLowerCase().trim();
+  const sort=document.getElementById("sortSelect").value;
+
+  let filtered=products.filter(p=>{
+    const categoryMatch=activeCategory==="All"||p.category===activeCategory;
+    const searchMatch=(p.name+" "+p.category+" "+p.desc).toLowerCase().includes(search);
+    return categoryMatch&&searchMatch;
+  });
+
+  if(sort==="low")filtered.sort((a,b)=>a.price-b.price);
+  if(sort==="high")filtered.sort((a,b)=>b.price-a.price);
+  if(sort==="name")filtered.sort((a,b)=>a.name.localeCompare(b.name));
+
+  document.getElementById("productGrid").innerHTML=
+    filtered.length?filtered.map(productCard).join("") :
+    `<div class="empty-message">No products found. Try another search.</div>`;
+
+  document.getElementById("drinkGrid").innerHTML=
+    products.filter(p=>p.category==="Drinks").map(productCard).join("");
+
+  updateCounters();
+}
+
+function addToCart(id){
+  cart[id]=(cart[id]||0)+1;
+  saveCart();
+  updateCart();
+  toast("Added to your shopping cart 🛒");
+}
+
+function toggleFavorite(id){
+  if(favorites.has(id)){
+    favorites.delete(id);
+    toast("Removed from favourites");
+  }else{
+    favorites.add(id);
+    toast("Added to favourites ❤️");
+  }
+  saveFavorites();
+  renderProducts();
+}
+
+function showFavorites(){
+  activeCategory="All";
+  buildCategories();
+  document.getElementById("searchInput").value="";
+  const loved=products.filter(p=>favorites.has(p.id));
+  document.getElementById("productGrid").innerHTML=
+    loved.length?loved.map(productCard).join("") :
+    `<div class="empty-message">You have no favourites yet. Tap ♡ on a product to save it.</div>`;
+  document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+}
+
+function updateCounters(){
+  document.getElementById("cartCount").textContent=
+    Object.values(cart).reduce((a,b)=>a+b,0);
+  document.getElementById("favCount").textContent=favorites.size;
+}
+
+function openCart(){
+  document.getElementById("cartOverlay").classList.add("open");
+  updateCart();
+}
+
+function closeCart(){
+  document.getElementById("cartOverlay").classList.remove("open");
+}
+
+function overlayClose(e){
+  if(e.target.id==="cartOverlay")closeCart();
+}
+
+function updateCart(){
+  const items=products.filter(p=>cart[p.id]);
+  const container=document.getElementById("cartItems");
+
+  if(!items.length){
+    container.innerHTML=`<div class="empty-message">Your cart is empty 🍰<br>Let's add something delicious!</div>`;
+  }else{
+    container.innerHTML=items.map(p=>`
+      <div class="cart-item">
+        <img src="${p.img}" alt="${p.name}">
+        <div>
+          <h4>${p.name}</h4>
+          <small>${money(p.price)} each</small>
+          <div class="qty-controls">
+            <button onclick="changeQty(${p.id},-1)">−</button>
+            <strong>${cart[p.id]}</strong>
+            <button onclick="changeQty(${p.id},1)">+</button>
+            <button class="remove-item" onclick="removeItem(${p.id})">Remove</button>
+          </div>
+        </div>
+        <strong>${money(p.price*cart[p.id])}</strong>
+      </div>
+    `).join("");
+  }
+
+  const subtotal=items.reduce((sum,p)=>sum+p.price*cart[p.id],0);
+  const delivery=document.getElementById("deliveryOption").value==="delivery"&&items.length?DELIVERY_FEE:0;
+
+  document.getElementById("subtotal").textContent=money(subtotal);
+  document.getElementById("delivery").textContent=money(delivery);
+  document.getElementById("total").textContent=money(subtotal+delivery);
+
+  const address=document.getElementById("deliveryAddress");
+  address.required=document.getElementById("deliveryOption").value==="delivery";
+
+  updateCounters();
+}
+
+function changeQty(id,change){
+  cart[id]=(cart[id]||0)+change;
+  if(cart[id]<=0)delete cart[id];
+  saveCart();
+  updateCart();
+}
+
+function removeItem(id){
+  delete cart[id];
+  saveCart();
+  updateCart();
+}
+
+function toast(message){
+  const t=document.getElementById("toast");
+  t.textContent=message;
+  t.classList.add("show");
+  clearTimeout(window.toastTimeout);
+  window.toastTimeout=setTimeout(()=>t.classList.remove("show"),2200);
+}
+
+/* =========================================
+   WHATSAPP CHECKOUT
+========================================= */
+
+document.getElementById("checkoutForm").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const items=products.filter(p=>cart[p.id]);
+  if(!items.length){
+    toast("Your cart is empty!");
+    return;
+  }
+
+  const name=document.getElementById("customerName").value.trim();
+  const phone=document.getElementById("customerPhone").value.trim();
+  const option=document.getElementById("deliveryOption").value;
+  const address=document.getElementById("deliveryAddress").value.trim();
+  const date=document.getElementById("orderDate").value;
+  const notes=document.getElementById("orderNotes").value.trim();
+
+  if(!name||!phone){
+    toast("Please enter your name and phone number.");
+    return;
+  }
+
+  if(option==="delivery"&&!address){
+    toast("Please enter your delivery location.");
+    return;
+  }
+
+  const subtotal=items.reduce((sum,p)=>sum+p*p.price*0+ p.price*cart[p.id],0);
+  const delivery=option==="delivery"?DELIVERY_FEE:0;
+  const total=subtotal+delivery;
+
+  let message="🍰 *CAKE DELIGHTS BY FATUMA - NEW ORDER*%0A";
+  message+="━━━━━━━━━━━━━━━━━━━━%0A";
+  message+="👤 Customer: "+encodeURIComponent(name)+"%0A";
+  message+="📞 Phone: "+encodeURIComponent(phone)+"%0A";
+  message+="📦 Order type: "+encodeURIComponent(option==="delivery"?"Delivery":"Pickup")+"%0A";
+
+  if(option==="delivery"){
+    message+="📍 Address: "+encodeURIComponent(address)+"%0A";
+  }
+
+  if(date)message+="📅 Requested date: "+encodeURIComponent(date)+"%0A";
+
+  message+="%0A🛍️ *ORDER ITEMS*%0A";
+
+  items.forEach(p=>{
+    message+=encodeURIComponent(p.name)+" x "+cart[p.id]+
+      " = "+encodeURIComponent(money(p.price*cart[p.id]))+"%0A";
+  });
+
+  message+="%0A💵 Subtotal: "+encodeURIComponent(money(subtotal))+"%0A";
+  message+="🚚 Delivery: "+encodeURIComponent(money(delivery))+"%0A";
+  message+="💰 *TOTAL: "+encodeURIComponent(money(total))+"*%0A";
+
+  if(notes){
+    message+="%0A📝 Instructions: "+encodeURIComponent(notes)+"%0A";
+  }
+
+  message+="%0AThank you for choosing Cake Delights by Fatuma ❤️";
+
+  const whatsappURL="https://wa.me/"+WA_NUMBER+"?text="+message;
+  window.open(whatsappURL,"_blank","noopener");
+
+  // Cart is retained until the customer chooses to clear it.
+});
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+buildCategories();
+renderProducts();
+updateCart();
+
+</script>
+</body>
+</html>

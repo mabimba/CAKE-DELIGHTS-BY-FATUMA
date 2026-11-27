@@ -883,50 +883,61 @@ footer a:hover{color:white}
   .icon-btn{width:37px;height:37px}
 }
 
-/* RESPONSIVE SHOP EXPERIENCE + DECORATIVE BUBBLES */
-.greeting-line{font-size:clamp(16px,2vw,22px);font-weight:700;color:#8b5b45;margin-bottom:12px}
-.bubble-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
-.bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 28%,rgba(255,255,255,.95),rgba(233,183,196,.28) 45%,rgba(199,154,82,.12));border:1px solid rgba(199,154,82,.22);box-shadow:inset 0 0 12px rgba(255,255,255,.5);animation:bubbleFloat 12s ease-in-out infinite}
-.bubble:nth-child(1){width:42px;height:42px;left:3%;top:22%;animation-delay:-2s}
-.bubble:nth-child(2){width:24px;height:24px;left:17%;top:68%;animation-delay:-5s}
-.bubble:nth-child(3){width:65px;height:65px;right:4%;top:38%;animation-delay:-3s}
-.bubble:nth-child(4){width:32px;height:32px;right:20%;top:78%;animation-delay:-7s}
-.bubble:nth-child(5){width:18px;height:18px;right:9%;top:12%;animation-delay:-1s}
-@keyframes bubbleFloat{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-22px) translateX(8px)}}
-/* Desktop: catalogue cards side-by-side */
-@media(min-width:721px){.product-grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}}
-/* Mobile: Jumia-style vertical product list */
+/* ===== Responsive storefront improvements ===== */
+.search-box input{font-size:16px}
+.shop-tools{position:relative;z-index:2}
+.category-list{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:4px 2px 12px;scrollbar-width:thin}
+.category-btn{white-space:nowrap;flex:0 0 auto}
+/* Colourful floating bubbles + flowing floral decorations */
+.bubble-layer{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bubble{position:absolute;bottom:-110px;border-radius:50%;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.95),hsla(var(--bubble-hue,330),95%,75%,.48) 45%,hsla(var(--bubble-hue,330),90%,60%,.12));border:1px solid hsla(var(--bubble-hue,330),90%,68%,.4);box-shadow:0 0 18px hsla(var(--bubble-hue,330),95%,65%,.16),inset 0 0 12px rgba(255,255,255,.55);animation:floatBubble linear infinite;opacity:.65}
+.flower{position:absolute;bottom:-90px;font-size:clamp(20px,3vw,38px);filter:drop-shadow(0 3px 5px rgba(80,30,30,.12));animation:flowerFlow linear infinite;opacity:.72}
+@keyframes floatBubble{0%{transform:translateY(0) translateX(0) scale(.75);opacity:0}12%{opacity:.65}50%{transform:translateY(-55vh) translateX(var(--drift,25px)) scale(1.05)}88%{opacity:.35}100%{transform:translateY(-115vh) translateX(calc(var(--drift,25px)*1.5)) scale(1.25);opacity:0}}
+@keyframes flowerFlow{0%{transform:translateY(0) translateX(0) rotate(0deg);opacity:0}12%{opacity:.75}50%{transform:translateY(-55vh) translateX(var(--drift,40px)) rotate(160deg)}100%{transform:translateY(-115vh) translateX(calc(var(--drift,40px)*-1)) rotate(360deg);opacity:0}}
+body>*:not(.bubble-layer){position:relative;z-index:1}
+@media(min-width:721px){.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:720px){
-  .shop-tools{position:sticky;top:75px;z-index:20;background:#fff;padding:8px 0}
-  .search-box{min-width:100%;flex:1}
-  .category-list{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 12px;scrollbar-width:thin}
-  .category-btn{white-space:nowrap;flex-shrink:0}
-  .product-grid{grid-template-columns:1fr;gap:12px}
-  .product-card{display:grid;grid-template-columns:116px minmax(0,1fr);min-height:150px;border-radius:12px}
-  .product-image{height:100%;min-height:150px}
-  .product-image img{height:100%;min-height:150px}
-  .product-info{padding:12px 11px;display:flex;flex-direction:column;justify-content:center}
+  .category-list{margin-left:-2px;margin-right:-2px}
+  .shop-tools{position:sticky;top:70px;background:#fff;padding:8px 0;z-index:90}
+  .search-box{min-width:100%;}
+  .product-grid{grid-template-columns:1fr!important;gap:12px}
+  .product-card{display:grid;grid-template-columns:118px minmax(0,1fr);align-items:stretch;min-height:142px;border-radius:12px}
+  .product-image{height:100%;min-height:142px;}
+  .product-info{padding:12px;display:flex;flex-direction:column;justify-content:center;min-width:0}
   .product-info h3{font-size:16px;line-height:1.25}
-  .product-info p{min-height:0;margin-top:2px}
-  .product-tag{font-size:9px;padding:4px 7px;top:7px;left:7px}
-  .favorite-btn{width:29px;height:29px;font-size:16px;top:7px;right:7px}
-  .price-row{margin-top:9px}
-  .add-btn{width:34px;height:34px}
-  .section{position:relative;z-index:2}
+  .product-info p{min-height:0;font-size:11px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .price-row{margin-top:8px}
+  .product-tag{font-size:8px;padding:4px 6px;top:7px;left:7px}
+  .favorite-btn{width:30px;height:30px;top:7px;right:7px;font-size:16px}
+  .add-btn{width:34px;height:34px;border-radius:8px}
 }
-@media(max-width:380px){.product-card{grid-template-columns:100px minmax(0,1fr)}.product-image,.product-image img{min-height:145px}.product-info h3{font-size:15px}}
+@media(max-width:420px){.product-card{grid-template-columns:105px minmax(0,1fr)}.product-image{min-height:132px}.product-info{padding:10px}.product-info h3{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.bubble,.product-card,.product-image img{animation:none;transition:none}}
+
+
+/* Premium catalogue and department-page polish */
+.department-note{font-size:13px;color:#78665d;text-align:center;margin:0 auto 18px;max-width:760px}
+.product-size{width:100%;margin-top:10px;padding:9px;border:1px solid #eadfd7;border-radius:8px;background:#fff;color:#5c4335;font-size:12px}
+.product-details{font-size:12px;color:#7d6b60;line-height:1.6;margin-top:7px}
+.product-card{box-shadow:0 4px 15px rgba(71,37,23,.035)}
+.product-info p{min-height:0}
+.category-btn{box-shadow:0 2px 6px rgba(60,30,20,.035)}
+.category-btn.active{box-shadow:0 7px 16px rgba(113,59,44,.17)}
+.social-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+.social-row a{display:inline-flex;align-items:center;gap:7px;padding:10px 12px;border:1px solid #eadfd7;border-radius:25px;background:#fff;color:var(--brown);font-weight:700;font-size:12px;text-decoration:none}
+@media(max-width:720px){.product-size{margin-top:7px}.product-info p{line-height:1.45}.product-details{display:none}}
 
 </style>
 </head>
 
 <body>
+<div class="bubble-layer" aria-hidden="true"></div>
 
 <div class="topbar">
   🎂 Freshly baked with love in Kampala!
   <a href="https://wa.me/256704634536">Order today on WhatsApp</a>
 </div>
 
-<div class="bubble-layer" aria-hidden="true"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span></div>
 <header>
   <nav class="nav">
     <a href="#" class="logo">
@@ -940,7 +951,7 @@ footer a:hover{color:white}
       <a href="#home">Home</a>
       <a href="#shop">Shop</a>
       <a href="#about">About Us</a>
-      <a href="#drinks">Drinks</a>
+      <a href="#shop" onclick="selectCategory('Drinks')">Beverages</a>
       <a href="#contact">Contact</a>
     </div>
 
@@ -960,8 +971,7 @@ footer a:hover{color:white}
 
 <section class="hero" id="home">
   <div class="hero-text">
-    <div class="greeting-line" id="timeGreeting">Welcome!</div>
-    <div class="eyebrow">Welcome to Cake Delights by Fatuma</div>
+    <div class="eyebrow" id="timeGreeting">Welcome to Cake Delights by Fatuma</div>
     <h1>Every bite is a <span>sweet</span> celebration.</h1>
     <p>
       Beautiful cakes, delicious pastries, fresh bakery treats and
@@ -1008,10 +1018,11 @@ footer a:hover{color:white}
   <div class="section-head">
     <div class="eyebrow">Our Delicious Menu</div>
     <h2>Find Your Perfect Treat</h2>
-    <p>Explore our cakes, pastries, snacks, breads and refreshing beverages.</p>
+    <p>Choose a department to browse its own menu page, then select product sizes and add to your cart.</p>
   </div>
 
   <div class="category-list" id="categoryList"></div>
+  <p class="department-note">Tap a category to open its menu department. Product sizes and pack options are selectable; prices are sample menu prices and should be confirmed by the business before publishing.</p>
 
   <div class="shop-tools">
     <div class="search-box">
@@ -1118,6 +1129,8 @@ footer a:hover{color:white}
         <a href="mailto:fatumanabaggala1@gmail.com">✉ fatumanabaggala1@gmail.com</a>
         <a href="mailto:fatumanabaggala570@gmail.com">✉ fatumanabaggala570@gmail.com</a>
         <a href="https://www.tiktok.com/@cakedelightsbyfatuma" target="_blank" rel="noopener">🎵 TikTok: @cakedelightsbyfatuma</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">📸 Instagram (add official profile link)</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">📘 Facebook (add official profile link)</a>
       </div>
     </div>
   </div>
@@ -1151,16 +1164,19 @@ footer a:hover{color:white}
       <h3>Follow & Order</h3>
       <div class="footer-links">
         <a href="https://wa.me/256704634536">WhatsApp Us</a>
-        <a href="https://www.tiktok.com/@cakedelightsbyfatuma">TikTok</a>
+        <a href="https://www.tiktok.com/@cakedelightsbyfatuma" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
         <a href="mailto:fatumanabaggala1@gmail.com">Email Us</a>
         <a href="tel:+256704634536">Call Us</a>
       </div>
+      <div class="social-row"><a href="https://wa.me/256704634536" target="_blank" rel="noopener">💬 WhatsApp</a><a href="https://www.tiktok.com/@cakedelightsbyfatuma" target="_blank" rel="noopener">🎵 TikTok</a><a href="https://www.instagram.com/" target="_blank" rel="noopener">📸 Instagram</a><a href="https://www.facebook.com/" target="_blank" rel="noopener">📘 Facebook</a></div>
     </div>
   </div>
 
   <div class="footer-bottom">
     © <span id="year"></span> Cake Delights by Fatuma. All rights reserved.
-    Made with ❤️ in Kampala, Uganda.<br><strong>Website designed by MABIMBA GROUP OF COMPANIES</strong>
+    Website designed by <strong>MABIMBA GROUP OF COMPANIES</strong> · Made with ❤️ in Kampala, Uganda.
   </div>
 </footer>
 
@@ -1285,7 +1301,22 @@ const products = [
 {id:37,name:"Iced Coffee",category:"Drinks",price:7000,tag:"Chilled",desc:"Cold refreshing coffee.",img:"https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80"},
 {id:38,name:"Tea",category:"Drinks",price:3000,tag:"Hot",desc:"A warm cup of tea.",img:"https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80"},
 {id:39,name:"Coffee",category:"Drinks",price:5000,tag:"Hot",desc:"Freshly prepared coffee.",img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80"},
-{id:40,name:"Energy Drink",category:"Drinks",price:5000,tag:"Chilled",desc:"Chilled energy drink.",img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=700&q=80"}
+{id:40,name:"Energy Drink",category:"Drinks",price:5000,tag:"Chilled",desc:"Chilled energy drink.",img:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=700&q=80"},
+
+/* EXTRA MENU ITEMS */
+{id:41,name:"Vanilla Swiss Roll",category:"Pastries",price:18000,tag:"Tea-time",desc:"Light sponge rolled with vanilla cream; ideal for sharing.",img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"},
+{id:42,name:"Chocolate Brownies",category:"Pastries",price:15000,tag:"Rich",desc:"Fudgy chocolate squares with a soft centre and crisp top.",img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"},
+{id:43,name:"Cinnamon Rolls",category:"Pastries",price:12000,tag:"Fresh",desc:"Soft rolls with cinnamon sugar and a light glaze.",img:"https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=700&q=80"},
+{id:44,name:"Puff Pastry",category:"Pastries",price:6000,tag:"Flaky",desc:"Light, buttery pastry with crisp layers.",img:"https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80"},
+{id:45,name:"Chicken Pie",category:"Snacks",price:7000,tag:"Savoury",desc:"Golden pastry filled with a savoury chicken filling.",img:"https://images.unsplash.com/photo-1608198093002-ad4e005484f3?auto=format&fit=crop&w=700&q=80"},
+{id:46,name:"Vegetable Pie",category:"Snacks",price:6000,tag:"Vegetarian",desc:"Flaky pastry with a savoury vegetable filling.",img:"https://images.unsplash.com/photo-1608198093002-ad4e005484f3?auto=format&fit=crop&w=700&q=80"},
+{id:47,name:"Mini Pizza (4 pieces)",category:"Snacks",price:18000,tag:"Share",desc:"Four mini pizzas for snack time or small gatherings.",img:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80"},
+{id:48,name:"Fruit Salad Cup",category:"Snacks",price:8000,tag:"Fresh",desc:"A colourful mix of seasonal fruit served in a cup.",img:"https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=80"},
+{id:49,name:"Lemonade",category:"Drinks",price:4000,tag:"Refreshing",desc:"A refreshing lemon drink with a bright citrus flavour.",img:"https://images.unsplash.com/photo-1513558161293-cdaf765edfd7?auto=format&fit=crop&w=700&q=80"},
+{id:50,name:"Hot Chocolate",category:"Drinks",price:6000,tag:"Warm",desc:"Comforting cocoa drink served warm.",img:"https://images.unsplash.com/photo-1542990253-0b8be5e8e5e6?auto=format&fit=crop&w=700&q=80"},
+{id:51,name:"Smoothie",category:"Drinks",price:7000,tag:"Fruit blend",desc:"Blended fruit drink; flavour depends on seasonal availability.",img:"https://images.unsplash.com/photo-1505252585461-04db1eb84625?auto=format&fit=crop&w=700&q=80"},
+{id:52,name:"Mini Doughnuts (8)",category:"Pastries",price:18000,tag:"Party pack",desc:"A small party pack of bite-sized glazed doughnuts.",img:"https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=700&q=80"}
+
 ];
 
 /* =========================================
@@ -1306,7 +1337,7 @@ try {
   favorites = new Set();
 }
 
-const categories = ["All","Cakes","Cupcakes","Bakery","Drinks"];
+const categories = ["All","Cakes","Cupcakes","Pastries","Bakery","Snacks","Drinks"];
 
 const money = value =>
   "UGX " + Number(value).toLocaleString("en-UG");
@@ -1332,7 +1363,7 @@ function buildCategories(){
   container.innerHTML=categories.map(category=>`
     <button class="category-btn ${category===activeCategory?'active':''}"
       onclick="selectCategory('${category}')">
-      ${category==="All"?"✨ ":category==="Cakes"?"🎂 ":category==="Cupcakes"?"🧁 ":category==="Bakery"?"🥐 ":"🥤 "}${category}
+      ${category==="All"?"✨ ":category==="Cakes"?"🎂 ":category==="Cupcakes"?"🧁 ":category==="Pastries"?"🥮 ":category==="Snacks"?"🍴 ":category==="Bakery"?"🥐 ":"🥤 "}${category}
     </button>
   `).join("");
 }
@@ -1341,63 +1372,84 @@ function selectCategory(category){
   activeCategory=category;
   buildCategories();
   renderProducts();
+  const slug=category.toLowerCase().replace(/[^a-z0-9]+/g,"-");
+  if(category!=="All") history.replaceState(null,"", "#category-"+slug); else history.replaceState(null,"","#shop");
+  document.getElementById("shop").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
+function sizeOptions(p){
+  if(p.category==="Cakes") return [
+    {label:"0.5 lb / Mini",price:Math.round(p.price*.65)},
+    {label:"1 lb",price:p.price},
+    {label:"2 lb",price:Math.round(p.price*1.85)},
+    {label:"3 lb",price:Math.round(p.price*2.7)}
+  ];
+  if(p.category==="Cupcakes"||p.category==="Pastries") return [
+    {label:"Small pack",price:p.price}, {label:"Medium pack",price:Math.round(p.price*1.7)}, {label:"Large pack",price:Math.round(p.price*2.5)}
+  ];
+  if(p.category==="Drinks") return [
+    {label:"Regular",price:p.price}, {label:"Large",price:Math.round(p.price*1.5)}
+  ];
+  return [{label:"Standard",price:p.price},{label:"Pack of 2",price:p.price*2},{label:"Pack of 5",price:p.price*5}];
+}
+function selectedVariant(id){
+  const select=document.getElementById("size-"+id);
+  const p=products.find(x=>x.id===id);
+  const variants=sizeOptions(p);
+  return variants[select?Number(select.value):0];
+}
 function productCard(p){
   const loved=favorites.has(p.id);
+  const variants=sizeOptions(p);
   return `
     <article class="product-card">
       <div class="product-image">
-        <img src="${p.img}" alt="${p.name}" loading="lazy"
-          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80'">
+        <img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80'">
         <span class="product-tag">${p.tag}</span>
-        <button class="favorite-btn ${loved?'loved':''}"
-          onclick="toggleFavorite(${p.id})" aria-label="Add to favourites">
-          ${loved?"♥":"♡"}
-        </button>
+        <button class="favorite-btn ${loved?'loved':''}" onclick="toggleFavorite(${p.id})" aria-label="Add to favourites">${loved?"♥":"♡"}</button>
       </div>
       <div class="product-info">
         <span class="product-category">${p.category}</span>
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
+        <select class="product-size" id="size-${p.id}" onchange="updateProductPrice(${p.id})" aria-label="Choose size or pack for ${p.name}">
+          ${variants.map((v,i)=>`<option value="${i}">${v.label} — ${money(v.price)}</option>`).join("")}
+        </select>
         <div class="price-row">
-          <span class="price">${money(p.price)}</span>
+          <span class="price" id="price-${p.id}">${money(variants[0].price)}</span>
           <button class="add-btn" onclick="addToCart(${p.id})" aria-label="Add ${p.name} to cart">+</button>
         </div>
       </div>
     </article>
   `;
 }
-
+function updateProductPrice(id){
+  const variant=selectedVariant(id);
+  const label=document.getElementById("price-"+id);
+  if(label)label.textContent=money(variant.price);
+}
 function renderProducts(){
   const search=document.getElementById("searchInput").value.toLowerCase().trim();
   const sort=document.getElementById("sortSelect").value;
-
   let filtered=products.filter(p=>{
     const categoryMatch=activeCategory==="All"||p.category===activeCategory;
     const searchMatch=(p.name+" "+p.category+" "+p.desc).toLowerCase().includes(search);
     return categoryMatch&&searchMatch;
   });
-
   if(sort==="low")filtered.sort((a,b)=>a.price-b.price);
   if(sort==="high")filtered.sort((a,b)=>b.price-a.price);
   if(sort==="name")filtered.sort((a,b)=>a.name.localeCompare(b.name));
-
-  document.getElementById("productGrid").innerHTML=
-    filtered.length?filtered.map(productCard).join("") :
-    `<div class="empty-message">No products found. Try another search.</div>`;
-
-  document.getElementById("drinkGrid").innerHTML=
-    products.filter(p=>p.category==="Drinks").map(productCard).join("");
-
+  document.getElementById("productGrid").innerHTML=filtered.length?filtered.map(productCard).join(""):`<div class="empty-message">No products found. Try another search.</div>`;
+  document.getElementById("drinkGrid").innerHTML=products.filter(p=>p.category==="Drinks").map(productCard).join("");
   updateCounters();
 }
-
 function addToCart(id){
-  cart[id]=(cart[id]||0)+1;
-  saveCart();
-  updateCart();
-  toast("Added to your shopping cart 🛒");
+  const p=products.find(x=>x.id===id);
+  const variant=selectedVariant(id);
+  const key=id+"|"+variant.label;
+  if(!cart[key])cart[key]={id,variant:variant.label,price:variant.price,qty:0};
+  cart[key].qty++;
+  saveCart();updateCart();toast("Added to your cart 🛒");
 }
 
 function toggleFavorite(id){
@@ -1425,7 +1477,7 @@ function showFavorites(){
 
 function updateCounters(){
   document.getElementById("cartCount").textContent=
-    Object.values(cart).reduce((a,b)=>a+b,0);
+    Object.values(cart).reduce((a,b)=>a+(typeof b==="number"?b:b.qty),0);
   document.getElementById("favCount").textContent=favorites.size;
 }
 
@@ -1443,55 +1495,26 @@ function overlayClose(e){
 }
 
 function updateCart(){
-  const items=products.filter(p=>cart[p.id]);
+  const entries=Object.entries(cart).filter(([key,item])=>item&&((typeof item==="number"&&item>0)||(item.qty>0)));
   const container=document.getElementById("cartItems");
-
-  if(!items.length){
-    container.innerHTML=`<div class="empty-message">Your cart is empty 🍰<br>Let's add something delicious!</div>`;
-  }else{
-    container.innerHTML=items.map(p=>`
-      <div class="cart-item">
-        <img src="${p.img}" alt="${p.name}">
-        <div>
-          <h4>${p.name}</h4>
-          <small>${money(p.price)} each</small>
-          <div class="qty-controls">
-            <button onclick="changeQty(${p.id},-1)">−</button>
-            <strong>${cart[p.id]}</strong>
-            <button onclick="changeQty(${p.id},1)">+</button>
-            <button class="remove-item" onclick="removeItem(${p.id})">Remove</button>
-          </div>
-        </div>
-        <strong>${money(p.price*cart[p.id])}</strong>
-      </div>
-    `).join("");
-  }
-
-  const subtotal=items.reduce((sum,p)=>sum+p.price*cart[p.id],0);
-  const delivery=document.getElementById("deliveryOption").value==="delivery"&&items.length?DELIVERY_FEE:0;
-
-  document.getElementById("subtotal").textContent=money(subtotal);
-  document.getElementById("delivery").textContent=money(delivery);
-  document.getElementById("total").textContent=money(subtotal+delivery);
-
-  const address=document.getElementById("deliveryAddress");
-  address.required=document.getElementById("deliveryOption").value==="delivery";
-
-  updateCounters();
+  if(!entries.length){container.innerHTML=`<div class="empty-message">Your cart is empty 🍰<br>Let's add something delicious!</div>`;}
+  else{container.innerHTML=entries.map(([key,item])=>{
+    const legacy=typeof item==="number";
+    const id=legacy?Number(key):item.id;const p=products.find(x=>x.id===id);
+    const qty=legacy?item:item.qty;const price=legacy?p.price:item.price;const variant=legacy?"Standard":item.variant;
+    return `<div class="cart-item"><img src="${p.img}" alt="${p.name}"><div><h4>${p.name}</h4><small>${variant} · ${money(price)} each</small><div class="qty-controls"><button onclick="changeQty('${key}',-1)">−</button><strong>${qty}</strong><button onclick="changeQty('${key}',1)">+</button><button class="remove-item" onclick="removeItem('${key}')">Remove</button></div></div><strong>${money(price*qty)}</strong></div>`;
+  }).join("");}
+  const subtotal=entries.reduce((sum,[key,item])=>{const legacy=typeof item==="number";const id=legacy?Number(key):item.id;const p=products.find(x=>x.id===id);return sum+(legacy?p.price:item.price)*(legacy?item:item.qty);},0);
+  const delivery=document.getElementById("deliveryOption").value==="delivery"&&entries.length?DELIVERY_FEE:0;
+  document.getElementById("subtotal").textContent=money(subtotal);document.getElementById("delivery").textContent=money(delivery);document.getElementById("total").textContent=money(subtotal+delivery);
+  const address=document.getElementById("deliveryAddress");address.required=document.getElementById("deliveryOption").value==="delivery";updateCounters();
 }
-
-function changeQty(id,change){
-  cart[id]=(cart[id]||0)+change;
-  if(cart[id]<=0)delete cart[id];
-  saveCart();
-  updateCart();
+function changeQty(key,change){
+  if(typeof cart[key]==="number"){cart[key]+=change;if(cart[key]<=0)delete cart[key];}
+  else if(cart[key]){cart[key].qty+=change;if(cart[key].qty<=0)delete cart[key];}
+  saveCart();updateCart();
 }
-
-function removeItem(id){
-  delete cart[id];
-  saveCart();
-  updateCart();
-}
+function removeItem(key){delete cart[key];saveCart();updateCart();}
 
 function toast(message){
   const t=document.getElementById("toast");
@@ -1508,8 +1531,8 @@ function toast(message){
 document.getElementById("checkoutForm").addEventListener("submit",function(e){
   e.preventDefault();
 
-  const items=products.filter(p=>cart[p.id]);
-  if(!items.length){
+  const entries=Object.entries(cart).filter(([k,v])=>v&&((typeof v==="number"&&v>0)||(v.qty>0)));
+  if(!entries.length){
     toast("Your cart is empty!");
     return;
   }
@@ -1531,7 +1554,7 @@ document.getElementById("checkoutForm").addEventListener("submit",function(e){
     return;
   }
 
-  const subtotal=items.reduce((sum,p)=>sum+p*p.price*0+ p.price*cart[p.id],0);
+  const subtotal=entries.reduce((sum,[key,item])=>{const legacy=typeof item==="number";const id=legacy?Number(key):item.id;const p=products.find(x=>x.id===id);return sum+(legacy?p.price:item.price)*(legacy?item:item.qty);},0);
   const delivery=option==="delivery"?DELIVERY_FEE:0;
   const total=subtotal+delivery;
 
@@ -1549,9 +1572,9 @@ document.getElementById("checkoutForm").addEventListener("submit",function(e){
 
   message+="%0A🛍️ *ORDER ITEMS*%0A";
 
-  items.forEach(p=>{
-    message+=encodeURIComponent(p.name)+" x "+cart[p.id]+
-      " = "+encodeURIComponent(money(p.price*cart[p.id]))+"%0A";
+  entries.forEach(([key,item])=>{
+    const legacy=typeof item==="number";const id=legacy?Number(key):item.id;const p=products.find(x=>x.id===id);const qty=legacy?item:item.qty;const price=legacy?p.price:item.price;const variant=legacy?"Standard":item.variant;
+    message+=encodeURIComponent(p.name+" ("+variant+")")+" x "+qty+" = "+encodeURIComponent(money(price*qty))+"%0A";
   });
 
   message+="%0A💵 Subtotal: "+encodeURIComponent(money(subtotal))+"%0A";
@@ -1570,19 +1593,59 @@ document.getElementById("checkoutForm").addEventListener("submit",function(e){
   // Cart is retained until the customer chooses to clear it.
 });
 
+
+/* Time-based welcome greeting */
+function updateGreeting(){
+  const hour=new Date().getHours();
+  let greeting=hour<12?'Good morning':hour<17?'Good afternoon':'Good evening';
+  const target=document.getElementById('timeGreeting');
+  if(target) target.textContent=greeting+'! Welcome to Cake Delights by Fatuma';
+}
+/* Create lightweight decorative bubbles */
+function createBubbles(){
+  const layer=document.querySelector('.bubble-layer');
+  if(!layer)return;
+  const count=window.innerWidth<720?18:30;
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduceMotion)return;
+  for(let i=0;i<count;i++){
+    const bubble=document.createElement('span');
+    bubble.className='bubble';
+    const size=12+Math.random()*66;
+    bubble.style.width=size+'px';
+    bubble.style.height=size+'px';
+    bubble.style.left=Math.random()*100+'%';
+    bubble.style.setProperty('--bubble-hue',Math.floor(Math.random()*360));
+    bubble.style.setProperty('--drift',(Math.random()*100-50)+'px');
+    bubble.style.animationDuration=(14+Math.random()*24)+'s';
+    bubble.style.animationDelay=(-Math.random()*30)+'s';
+    layer.appendChild(bubble);
+  }
+  const flowers=['🌸','🌼','🌺','🌷','💮','🪷','🌻'];
+  const flowerCount=window.innerWidth<720?8:14;
+  for(let i=0;i<flowerCount;i++){
+    const flower=document.createElement('span');
+    flower.className='flower';
+    flower.textContent=flowers[Math.floor(Math.random()*flowers.length)];
+    flower.style.left=Math.random()*100+'%';
+    flower.style.setProperty('--drift',(Math.random()*140-70)+'px');
+    flower.style.animationDuration=(18+Math.random()*25)+'s';
+    flower.style.animationDelay=(-Math.random()*35)+'s';
+    layer.appendChild(flower);
+  }
+}
+
 /* =========================================
    INITIALIZE
 ========================================= */
 
 document.getElementById("year").textContent=new Date().getFullYear();
-function updateTimeGreeting(){
-  const hour=new Date().getHours();
-  const greeting=hour<12?"Good morning":hour<17?"Good afternoon":"Good evening";
-  const target=document.getElementById("timeGreeting");
-  if(target)target.textContent=greeting+", welcome to Cake Delights by Fatuma!";
-}
-updateTimeGreeting();
+updateGreeting();
+createBubbles();
 
+buildCategories();
+const initialCategory=(location.hash.match(/^#category-(.+)$/)||[])[1];
+if(initialCategory){const found=categories.find(c=>c.toLowerCase().replace(/[^a-z0-9]+/g,"-")===initialCategory);if(found)activeCategory=found;}
 buildCategories();
 renderProducts();
 updateCart();

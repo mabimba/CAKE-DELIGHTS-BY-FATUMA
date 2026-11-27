@@ -882,10 +882,41 @@ footer a:hover{color:white}
   .nav-actions{gap:5px}
   .icon-btn{width:37px;height:37px}
 }
+
+/* ===== Responsive storefront improvements ===== */
+.search-box input{font-size:16px}
+.shop-tools{position:relative;z-index:2}
+.category-list{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding:4px 2px 12px;scrollbar-width:thin}
+.category-btn{white-space:nowrap;flex:0 0 auto}
+/* Decorative floating bubbles */
+.bubble-layer{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.bubble{position:absolute;bottom:-110px;border-radius:50%;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.9),rgba(232,183,196,.24) 45%,rgba(199,154,82,.10));border:1px solid rgba(215,174,184,.22);animation:floatBubble linear infinite;opacity:.55}
+@keyframes floatBubble{0%{transform:translateY(0) translateX(0) scale(.85);opacity:0}10%{opacity:.45}90%{opacity:.25}100%{transform:translateY(-115vh) translateX(40px) scale(1.2);opacity:0}}
+body>*:not(.bubble-layer){position:relative;z-index:1}
+@media(min-width:721px){.product-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:720px){
+  .category-list{margin-left:-2px;margin-right:-2px}
+  .shop-tools{position:sticky;top:70px;background:#fff;padding:8px 0;z-index:90}
+  .search-box{min-width:100%;}
+  .product-grid{grid-template-columns:1fr!important;gap:12px}
+  .product-card{display:grid;grid-template-columns:118px minmax(0,1fr);align-items:stretch;min-height:142px;border-radius:12px}
+  .product-image{height:100%;min-height:142px;}
+  .product-info{padding:12px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+  .product-info h3{font-size:16px;line-height:1.25}
+  .product-info p{min-height:0;font-size:11px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .price-row{margin-top:8px}
+  .product-tag{font-size:8px;padding:4px 6px;top:7px;left:7px}
+  .favorite-btn{width:30px;height:30px;top:7px;right:7px;font-size:16px}
+  .add-btn{width:34px;height:34px;border-radius:8px}
+}
+@media(max-width:420px){.product-card{grid-template-columns:105px minmax(0,1fr)}.product-image{min-height:132px}.product-info{padding:10px}.product-info h3{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.bubble,.product-card,.product-image img{animation:none;transition:none}}
+
 </style>
 </head>
 
 <body>
+<div class="bubble-layer" aria-hidden="true"></div>
 
 <div class="topbar">
   🎂 Freshly baked with love in Kampala!
@@ -925,7 +956,7 @@ footer a:hover{color:white}
 
 <section class="hero" id="home">
   <div class="hero-text">
-    <div class="eyebrow">Welcome to Cake Delights by Fatuma</div>
+    <div class="eyebrow" id="timeGreeting">Welcome to Cake Delights by Fatuma</div>
     <h1>Every bite is a <span>sweet</span> celebration.</h1>
     <p>
       Beautiful cakes, delicious pastries, fresh bakery treats and
@@ -1123,8 +1154,8 @@ footer a:hover{color:white}
   </div>
 
   <div class="footer-bottom">
-    © <span id="year"></span> Cake Delights by Fatuma.
-    Made with ❤️ in Kampala, Uganda.
+    © <span id="year"></span> Cake Delights by Fatuma. All rights reserved.
+    Website designed by <strong>MABIMBA GROUP OF COMPANIES</strong> · Made with ❤️ in Kampala, Uganda.
   </div>
 </footer>
 
@@ -1495,7 +1526,7 @@ document.getElementById("checkoutForm").addEventListener("submit",function(e){
     return;
   }
 
-  const subtotal=items.reduce((sum,p)=>sum+p*p.price*0+ p.price*cart[p.id],0);
+  const subtotal=items.reduce((sum,p)=>sum+p.price*cart[p.id],0);
   const delivery=option==="delivery"?DELIVERY_FEE:0;
   const total=subtotal+delivery;
 
@@ -1534,11 +1565,39 @@ document.getElementById("checkoutForm").addEventListener("submit",function(e){
   // Cart is retained until the customer chooses to clear it.
 });
 
+
+/* Time-based welcome greeting */
+function updateGreeting(){
+  const hour=new Date().getHours();
+  let greeting=hour<12?'Good morning':hour<17?'Good afternoon':'Good evening';
+  const target=document.getElementById('timeGreeting');
+  if(target) target.textContent=greeting+'! Welcome to Cake Delights by Fatuma';
+}
+/* Create lightweight decorative bubbles */
+function createBubbles(){
+  const layer=document.querySelector('.bubble-layer');
+  if(!layer)return;
+  const count=window.innerWidth<720?12:20;
+  for(let i=0;i<count;i++){
+    const bubble=document.createElement('span');
+    bubble.className='bubble';
+    const size=14+Math.random()*54;
+    bubble.style.width=size+'px';
+    bubble.style.height=size+'px';
+    bubble.style.left=Math.random()*100+'%';
+    bubble.style.animationDuration=(12+Math.random()*18)+'s';
+    bubble.style.animationDelay=(-Math.random()*24)+'s';
+    layer.appendChild(bubble);
+  }
+}
+
 /* =========================================
    INITIALIZE
 ========================================= */
 
 document.getElementById("year").textContent=new Date().getFullYear();
+updateGreeting();
+createBubbles();
 
 buildCategories();
 renderProducts();
